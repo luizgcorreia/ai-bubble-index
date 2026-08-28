@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "version": "0.1.0",
+  "observation_frequency": "quarterly",
+  "collection_window": { "start": "2022-Q1", "end": "2026-Q2" },
+  "confidence_levels": ["high", "medium", "low"],
+  "dimensions": [
+    { "id": "capital_expansion", "symbol": "C", "weight": 0.2 },
+    { "id": "monetization", "symbol": "M", "weight": 0.2 },
+    { "id": "unit_economics", "symbol": "U", "weight": 0.15 },
+    { "id": "valuation_expectations", "symbol": "V", "weight": 0.15 },
+    { "id": "financial_systemic_leverage", "symbol": "F", "weight": 0.15 },
+    { "id": "real_demand_utilization", "symbol": "D", "weight": 0.15 }
+  ],
+  "metrics": [
+    { "id": "c1_ai_capex_to_revenue", "dimension": "capital_expansion", "operationalization": "Estimated AI capex divided by AI revenue.", "transformation": "Percentile score; higher is more bubble-like.", "source_families": ["SEC XBRL", "company filings"], "confidence_default": "medium", "index_status": "core", "note": "Alternative specification to M2; do not score both." },
+    { "id": "c2_capex_growth_gap", "dimension": "capital_expansion", "operationalization": "Quarterly capex growth less AI revenue growth.", "transformation": "Percentile score; higher is more bubble-like.", "source_families": ["SEC XBRL", "company filings"], "confidence_default": "medium", "index_status": "core" },
+    { "id": "c3_ai_infrastructure_to_gdp", "dimension": "capital_expansion", "operationalization": "AI infrastructure investment divided by US GDP.", "transformation": "Percentile score; higher is more bubble-like.", "source_families": ["Epoch AI", "BEA"], "confidence_default": "medium", "index_status": "core" },
+    { "id": "m1_ai_revenue_growth", "dimension": "monetization", "operationalization": "Quarter-over-quarter AI revenue growth, tagged reported or estimated.", "transformation": "Direction selected after preregistered hypothesis; no reported and estimated values are pooled.", "source_families": ["SEC XBRL", "company filings"], "confidence_default": "medium", "index_status": "core" },
+    { "id": "m3_fcf_to_capex", "dimension": "monetization", "operationalization": "Free cash flow divided by capital expenditure for public infrastructure providers.", "transformation": "Inverse percentile score; lower conversion is more bubble-like.", "source_families": ["SEC XBRL"], "confidence_default": "high", "index_status": "core" },
+    { "id": "u2_cost_at_fixed_capability", "dimension": "unit_economics", "operationalization": "Cost to reach a fixed, versioned capability threshold.", "transformation": "Quarterly log change and percentile score.", "source_families": ["Stanford AI Index", "model-pricing datasets"], "confidence_default": "medium", "index_status": "core" },
+    { "id": "v1_ev_to_revenue", "dimension": "valuation_expectations", "operationalization": "Enterprise value divided by trailing revenue.", "transformation": "Percentile score; higher is more bubble-like.", "source_families": ["company filings", "market data"], "confidence_default": "high", "index_status": "core" },
+    { "id": "v4_implied_revenue_growth", "dimension": "valuation_expectations", "operationalization": "Growth rate required for a specified discounted cash flow model to support observed EV.", "transformation": "Percentile score; higher is more bubble-like; discount rate and terminal multiple are versioned assumptions.", "source_families": ["company filings", "market data"], "confidence_default": "medium", "index_status": "core" },
+    { "id": "f1_ai_debt_issuance", "dimension": "financial_systemic_leverage", "operationalization": "Documented AI-related debt issuance in the quarter.", "transformation": "Percentile score; higher is more bubble-like.", "source_families": ["company filings", "transaction datasets"], "confidence_default": "medium", "index_status": "core" },
+    { "id": "d1_enterprise_adoption", "dimension": "real_demand_utilization", "operationalization": "Share of surveyed organizations reporting AI use, with survey universe retained.", "transformation": "Reported separately and sensitivity-tested for survey changes.", "source_families": ["Stanford AI Index"], "confidence_default": "medium", "index_status": "core" },
+    { "id": "t2_metr_task_horizon", "dimension": "technology_momentum", "operationalization": "METR task completion time horizon at 50% and 80% success.", "transformation": "Log change using actual observations; labeled software/ML/cyber task horizon.", "source_families": ["METR"], "confidence_default": "high", "index_status": "core" },
+    { "id": "t1_benchmark_capability_growth", "dimension": "technology_momentum", "operationalization": "Growth in a fixed, versioned benchmark basket.", "transformation": "Composite log change; benchmark membership is frozen per release.", "source_families": ["Stanford AI Index"], "confidence_default": "medium", "index_status": "core" },
+    { "id": "f4_circular_financing", "dimension": "financial_systemic_leverage", "operationalization": "Observed internal ecosystem financing and revenue flows divided by observed financing.", "transformation": "Descriptive only until transaction coverage is validated.", "source_families": ["company filings", "transaction datasets"], "confidence_default": "low", "index_status": "research" },
+    { "id": "t4_rd_productivity", "dimension": "technology_momentum", "operationalization": "AI research output divided by research labor and compute proxies.", "transformation": "No index transformation in v0.1.", "source_families": ["research surveys", "benchmark datasets"], "confidence_default": "low", "index_status": "research" }
+  ]
+}

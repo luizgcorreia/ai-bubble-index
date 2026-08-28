@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="An auditable research framework for the AI Bubble Index." />
+    <title>AI Bubble Index — Research framework</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main>
+      <nav aria-label="Primary navigation"><a class="brand" href="#top">AIBI <span>v0.1</span></a><a href="#method">Method</a><a href="#metrics">Metrics</a><a href="#data">Data contract</a></nav>
+      <header id="top" class="hero">
+        <p class="eyebrow">AUDITABLE RESEARCH FRAMEWORK</p>
+        <h1>Separate the heat<br />from the foundation.</h1>
+        <p class="lede">The AI Bubble Index measures whether financial commitments, valuations, infrastructure investment, and economic expectations exceed demonstrated economic returns. Technology progress is reported separately—not used to inflate the bubble score.</p>
+        <div class="status"><span class="dot"></span><strong>Collection phase</strong><span>2022 Q1 – 2026 Q2 · No composite score published</span></div>
+      </header>
+
+      <section id="method" class="principle">
+        <p class="eyebrow">FIRST PRINCIPLE</p>
+        <blockquote>“Every number in the index must have a defined operationalization, a source, a frequency, a transformation, and a known confidence level.”</blockquote>
+        <p>Useful but unavailable or noisy measures remain <strong>research variables</strong>; they do not enter the index.</p>
+      </section>
+
+      <section class="split intro">
+        <article><p class="eyebrow">FINANCIAL OVERHEATING</p><h2><i>B</i><sub>t</sub></h2><p>How speculative or overextended is the AI investment ecosystem?</p><div class="formula">AIBI<sub>t</sub> = B<sub>t</sub></div></article>
+        <article class="tech"><p class="eyebrow">TECHNOLOGY MOMENTUM</p><h2><i>T</i><sub>t</sub></h2><p>How strongly is the boom supported by improvements in capability and AI economics?</p><div class="formula">Reported alongside B<sub>t</sub></div></article>
+      </section>
+
+      <section id="metrics"><div class="section-heading"><div><p class="eyebrow">COMPOSITE ARCHITECTURE</p><h2>Six dimensions. Twelve core metrics.</h2></div><p>Quarterly observations are scored relative to explicit historical baselines—never against arbitrary “bubble” thresholds.</p></div>
+        <div class="dimensions">
+          <article><span>20%</span><h3>Capital expansion</h3><p>C1 AI CapEx / AI revenue<br />C2 CapEx growth − AI revenue growth<br />C3 AI infrastructure / GDP</p></article>
+          <article><span>20%</span><h3>Monetization</h3><p>M1 AI revenue growth<br />M3 FCF / CapEx</p></article>
+          <article><span>15%</span><h3>Unit economics</h3><p>Performance-adjusted inference cost</p></article>
+          <article><span>15%</span><h3>Valuation expectations</h3><p>EV / revenue<br />Implied revenue growth</p></article>
+          <article><span>15%</span><h3>Financial stress</h3><p>AI-related debt issuance</p></article>
+          <article><span>15%</span><h3>Real demand</h3><p>Enterprise AI adoption</p></article>
+        </div>
+        <p class="math">B<sub>t</sub> = .20C<sub>t</sub> + .20M<sub>t</sub> + .15U<sub>t</sub> + .15V<sub>t</sub> + .15F<sub>t</sub> + .15D<sub>t</sub></p>
+      </section>
+
+      <section class="scenario"><div><p class="eyebrow">INTERPRETATION, NOT A PREJUDGMENT</p><h2>A two-axis scenario map</h2><p>Publishing both axes makes competing explanations testable: investment can be overheated, rationally anticipatory, or supported by genuine technical progress.</p></div><div class="quadrants" role="img" aria-label="Scenario map with financial overheating on the horizontal axis and technology momentum on the vertical axis"><span class="axis y">Technology momentum →</span><span class="axis x">Financial overheating →</span><b class="q q1">Productivity<br />revolution</b><b class="q q2">Technological<br />bubble</b><b class="q q3">Weak demand /<br />weak foundation</b><b class="q q4">Healthy infrastructure<br />transition</b></div></section>
+
+      <section id="data" class="data"><div class="section-heading"><div><p class="eyebrow">PROVENANCE BY DEFAULT</p><h2>Every observation is inspectable.</h2></div><p>Raw-source tables stay linked; reported figures and estimates are never treated as interchangeable.</p></div><div class="contract"><code>value</code><code>source</code><code>source_url</code><code>retrieved_at</code><code>reported_or_estimated</code><code>method</code><code>confidence</code></div><div class="tables"><article><h3>Six linked tables</h3><p>companies · financials · ai_financials · infrastructure · technical · macro</p></article><article><h3>Confidence-aware release</h3><p>HIGH, MEDIUM, and LOW inputs propagate into a Monte Carlo uncertainty interval.</p></article><article><h3>Dual baseline</h3><p>AI history: 2022–present. Sector history: technology companies, 2010–2026.</p></article></div></section>
+
+      <section class="sources"><p class="eyebrow">SOURCE FAMILIES</p><p>SEC XBRL · company filings · Epoch AI · METR · Stanford AI Index · BEA / BLS · FRED · documented model-pricing datasets</p></section>
+    </main>
+    <footer><span>AI Bubble Index · v0.1 research protocol</span><a href="data/metric-catalog.json">View metric catalog ↗</a></footer>
+  </body>
+</html>

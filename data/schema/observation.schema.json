@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Auditable index observation",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["value", "period", "source", "source_url", "retrieved_at", "reported_or_estimated", "method", "confidence"],
+  "properties": {
+    "value": { "type": "number" },
+    "period": { "type": "string", "pattern": "^[0-9]{4}-Q[1-4]$" },
+    "unit": { "type": "string" },
+    "source": { "type": "string", "minLength": 1 },
+    "source_url": { "type": "string", "format": "uri" },
+    "retrieved_at": { "type": "string", "format": "date-time" },
+    "reported_or_estimated": { "enum": ["reported", "estimated"] },
+    "method": { "type": "string", "minLength": 1 },
+    "confidence": { "enum": ["high", "medium", "low"] }
+  }
+}
